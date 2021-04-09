@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--法律法规-->
+        <record id="geo_regulations_laws_tree" model="ir.ui.view">
+            <field name="name">geo.regulations.laws.tree</field>
+            <field name="model">geo.regulations.laws</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="file" filename="file_name" invisible="1"/>
+                    <field name="file_name" string="附件"/>
+                    <field name="create_uid" string="发布人"/>
+                    <field name="create_date" string="发布时间"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_regulations_laws_form" model="ir.ui.view">
+            <field name="name">geo.regulations.laws.form</field>
+            <field name="model">geo.regulations.laws</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--通知公告-->
+        <record id="geo_regulations_informs_tree" model="ir.ui.view">
+            <field name="name">geo.regulations.informs.tree</field>
+            <field name="model">geo.regulations.informs</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="file" filename="file_name" invisible="1"/>
+                    <field name="file_name" string="附件"/>
+                    <field name="create_uid" string="发布人"/>
+                    <field name="create_date" string="发布时间"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_regulations_informs_form" model="ir.ui.view">
+            <field name="name">geo.regulations.informs.form</field>
+            <field name="model">geo.regulations.informs</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

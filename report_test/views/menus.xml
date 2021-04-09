@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem name="报表测试" id="menu_demo_report_test"/>
+        <!--Model-->
+        <menuitem name="Model" id="menu_model_top" parent="menu_demo_report_test"/>
+        <menuitem name="gl_accsum" id="menu_gl_accsum" parent="menu_model_top" action="action_gl_accsum"/>
+        <menuitem name="code" id="menu_code" parent="menu_model_top" action="action_code"/>
+        <menuitem name="ef_cost_dept" id="menu_ef_cost_dept" parent="menu_model_top" action="action_ef_cost_dept"/>
+        <menuitem name="ef_cost_incmdatam" id="menu_ef_cost_incmdatam" parent="menu_model_top"
+                  action="action_ef_cost_incmdatam"/>
+        <menuitem name="ef_cost_costshare" id="menu_ef_cost_costshare" parent="menu_model_top"
+                  action="action_ef_cost_costshare"/>
+        <menuitem name="ef_cost_chargekinddata" id="menu_ef_cost_chargekinddata" parent="menu_model_top"
+                  action="action_ef_cost_chargekinddata"/>
+        <!--Report-->
+        <menuitem name="Report" id="menu_report_top" parent="menu_demo_report_test"/>
+        <menuitem name="Income Report" id="menu_income_report" parent="menu_report_top" action="action_income_report"/>
+        <menuitem name="Dept Report" id="menu_dept_report" parent="menu_report_top" action="action_dept_report"/>
+
+        <!--JQX Report-->
+        <menuitem name="JQX Report" id="menu_jqx_report_top" parent="menu_demo_report_test"/>
+        <menuitem name="Jqx Income Report" id="menu_jqx_income_report" parent="menu_jqx_report_top"
+                  action="client_income_report"/>
+        <menuitem name="Jqx Dept Report" id="menu_jqx_dept_report" parent="menu_jqx_report_top"
+                  action="client_dept_report"/>
+    </data>
+</odoo>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<!-- Owl Templates -->
+<div t-name="FieldBinaryFilePreView" t-attf-class="oe_fileupload #{widget.attrs.class ? widget.attrs.class :''}" aria-atomic="true">
+    <div class="oe_placeholder_files"/>
+    <div t-if="widget.mode !== 'readonly'" class="oe_add">
+        <button class="btn btn-secondary o_attach" title="Attach"><span class="fa fa-paperclip" aria-label="Attach"/> <t t-esc="widget.string"/></button>
+        <t t-call="HiddenInputFile">
+            <t t-set="fileupload_id" t-value="widget.fileupload_id"/>
+            <t t-set="fileupload_action" t-translation="off">/web/binary/upload_attachment</t>
+            <t t-set="multi_upload" t-value="true"/>
+            <input type="hidden" name="model" t-att-value="widget.model"/>
+            <input type="hidden" name="id" value="0"/>
+        </t>
+    </div>
+</div>
+
+<div t-name="FieldBinaryFilePreView.files" class="o_attachments" aria-atomic="true">
+    <!-- uploaded files -->
+    <t t-foreach="widget.value.data" t-as="file">
+        <t t-if="!file.data.upload" t-call="FieldBinaryFilePreView.attachment_preview"/>
+    </t>
+    <!-- uploading files -->
+    <t t-foreach="widget.uploadingFiles" t-as="file">
+        <t t-set="upload" t-value="true"/>
+        <t t-call="FieldBinaryFilePreView.attachment_preview"/>
+    </t>
+</div>
+
+<t t-name="FieldBinaryFilePreView.attachment_preview">
+    <t t-set="url" t-value="widget.metadata[file.id] ? widget.metadata[file.id].url : false"/>
+    <t t-if="file.data" t-set="file" t-value="file.data"/>
+    <t t-set="editable" t-value="widget.mode === 'edit'"/>
+    <t t-if="file.mimetype" t-set="mimetype" t-value="file.mimetype"/>
+    <t t-set="type" t-value="file.mimetype and file.mimetype.split('/').shift()"/>
+
+    <div t-attf-class="o_attachment o_attachment_many2many #{ editable ? 'o_attachment_editable' : '' } #{upload ? 'o_attachment_uploading' : ''}" t-att-title="file.name">
+        <div class="o_attachment_wrap">
+            <t t-set="ext" t-value="file.name.replace(/^.*\./, '')"/>
+
+             <div t-attf-class="o_image_box float-left o_attachment_view" t-att-data-id="file.id"  t-att-data-name="file.name" t-att-data-mimetype="file.mimetype">
+                    <div
+                         class="o_image o_hover"
+                         t-att-style="type == 'image' ? 'background-image:url(/web/image/' + file.id + '/38x38/?crop=true' : '' "
+                         t-att-data-mimetype="file.mimetype">
+                    </div>
+             </div>
+
+            <div class="caption">
+                <span t-attf-class="ml4}" t-att-data-id="file.id"><t t-esc='file.name'/></span>
+            </div>
+            <div class="caption small">
+                <a t-attf-class="ml4 small text-uppercase}" t-att-data-id="file.id"><t t-esc="ext"/></a>
+                <div t-if="editable" class="progress o_attachment_progress_bar">
+                    <div class="progress-bar progress-bar-striped active" style="width: 100%">Uploading</div>
+                </div>
+            </div>
+
+            <div t-if="editable" class="o_attachment_uploaded"><i class="text-success fa fa-check" role="img" aria-label="Uploaded" title="Uploaded"/></div>
+            <div t-if="editable" class="o_attachment_delete" t-att-data-id="file.id"><span class="text-white" role="img" aria-label="Delete" title="Delete">×</span></div>
+        </div>
+    </div>
+</t>
+    <t t-name="geo.PreView.DocumentViewer">
+        <div class="modal o_modal_fullscreen" tabindex="-1" data-keyboard="false" role="dialog">
+            <t class="o_document_viewer_content_call" t-call="geo.PreView.DocumentViewer.Content"/>
+
+<!--            <t t-if="widget.attachment.length !== 1">-->
+<!--                <a class="arrow arrow-left move_previous" href="#">-->
+<!--                    <span class="fa fa-chevron-left" role="img" aria-label="Previous" title="Previous"/>-->
+<!--                </a>-->
+<!--                <a class="arrow arrow-right move_next" href="#">-->
+<!--                    <span class="fa fa-chevron-right" role="img" aria-label="Next" title="Next"/>-->
+<!--                </a>-->
+<!--            </t>-->
+        </div>
+    </t>
+
+     <t t-name="geo.PreView.DocumentViewer.Content">
+        <div class="o_viewer_content">
+            <t t-set="model" t-value="widget.modelName"/>
+            <t t-set="url" t-value="widget.url"/>
+            <div class="o_viewer-header">
+                <span class="o_image_caption">
+                    <t t-esc="widget.activeAttachmentName"/>
+                </span>
+                <a role="button" class="o_close_btn float-right" href="#" aria-label="Close" title="Close">×</a>
+            </div>
+            <div class="o_viewer_img_wrapper">
+                <div class="o_viewer_zoomer">
+                    <iframe t-att-src='url' style="width:100%; height:100%; border:0; padding:0; margin:0;"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

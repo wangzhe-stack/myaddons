@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ef_cost_costshare_tree" model="ir.ui.view">
+            <field name="name">ef.cost.costshare.tree</field>
+            <field name="model">ef.cost.costshare</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="c_year"/>
+                    <field name="c_month"/>
+                    <field name="c_dept_code"/>
+                    <field name="c_cost_item_code"/>
+                    <field name="i_my_money"/>
+                    <field name="i_med_money1"/>
+                    <field name="i_med_money2"/>
+                    <field name="i_med_money3"/>
+                    <field name="i_med_money4"/>
+                    <field name="i_med_money5"/>
+                    <field name="i_med_money6"/>
+                    <field name="i_med_money7"/>
+                    <field name="i_med_money8"/>
+                    <field name="i_med_money9"/>
+                    <field name="i_money1"/>
+                    <field name="i_money2"/>
+                    <field name="i_money3"/>
+                    <field name="i_money4"/>
+                    <field name="i_money5"/>
+                    <field name="i_money6"/>
+                    <field name="i_money7"/>
+                    <field name="i_money8"/>
+                    <field name="i_money9"/>
+                    <field name="i_all_money"/>
+                    <field name="i_count_money"/>
+                    <field name="cmodifier"/>
+                    <field name="dnmodifytime"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

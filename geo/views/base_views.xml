@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--地勘单位-->
+        <record id="geo_base_unit_tree" model="ir.ui.view">
+            <field name="name">geo.base.unit.tree</field>
+            <field name="model">geo.base.unit</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="名称"/>
+                    <field name="contact_name" string="联系人"/>
+                    <field name="contact_phone" string="联系电话"/>
+                    <field name="description" string="描述"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_base_unit_form" model="ir.ui.view">
+            <field name="name">geo.base.unit.form</field>
+            <field name="model">geo.base.unit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="contact_name" required="1"/>
+                                <field name="contact_phone" required="1"/>
+                                <field name="address"/>
+                                <field name="liquid_mineral_level"/>
+                                <field name="environment_geology_level"/>
+                                <field name="geochemistry_level"/>
+                            </group>
+                            <group>
+                                <field name="parent_id"/>
+                                <field name="position"/>
+                                <field name="email"/>
+                                <field name="area_geology_level"/>
+                                <field name="solid_mineral_level"/>
+                                <field name="physical_geography_level"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--矿种管理-->
+        <record id="geo_base_mineral_tree" model="ir.ui.view">
+            <field name="name">geo.base.mineral.tree</field>
+            <field name="model">geo.base.mineral</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="type" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_base_mineral_search" model="ir.ui.view">
+            <field name="name">geo.base.mineral.search</field>
+            <field name="model">geo.base.mineral</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <searchpanel>
+                        <field name="type" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <!--勘查阶段-->
+        <record id="geo_base_prospecting_stage_tree" model="ir.ui.view">
+            <field name="name">geo.base.prospecting.stage.tree</field>
+            <field name="model">geo.base.prospecting.stage</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--项目性质-->
+        <record id="geo_base_project_property_tree" model="ir.ui.view">
+            <field name="name">geo.base.project.property.tree</field>
+            <field name="model">geo.base.project.property</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--地区管理-->
+        <record id="geo_base_area_management_tree" model="ir.ui.view">
+            <field name="name">geo.base.area.management.tree</field>
+            <field name="model">geo.base.area.management</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--项目变更类型-->
+        <record id="geo_base_project_change_type_tree" model="ir.ui.view">
+            <field name="name">geo.base.project.change.type.tree</field>
+            <field name="model">geo.base.project.change.type</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--批次类别维护-->
+        <record id="geo_base_batch_category_tree" model="ir.ui.view">
+            <field name="name">geo.base.batch.category.tree</field>
+            <field name="model">geo.base.batch.category</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--工作量维护-->
+        <record id="geo_base_workload_maintain_tree" model="ir.ui.view">
+            <field name="name">geo.base.workload.maintain.tree</field>
+            <field name="model">geo.base.workload.maintain</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--批次维护-->
+        <record id="geo_base_batch_maintain_tree" model="ir.ui.view">
+            <field name="name">geo.base.batch.maintain.tree</field>
+            <field name="model">geo.base.batch.maintain</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

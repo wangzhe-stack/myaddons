@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="dept_report_tree" model="ir.ui.view">
+            <field name="name">dept.report.tree</field>
+            <field name="model">dept.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="c_dept_code"/>
+                    <field name="c_dept_name"/>
+                    <field name="i_all_money"/>
+                    <field name="i_money"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dept_report_graph" model="ir.ui.view">
+            <field name="name">dept.report.graph</field>
+            <field name="model">dept.report</field>
+            <field name="arch" type="xml">
+                <graph string="Dept Analysis" sample="1" disable_linking="1">
+                    <field name="c_dept_name" type="col"/>
+                    <field name="i_money"/>
+                    <field name="i_money" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="dept_report_pivot" model="ir.ui.view">
+            <field name="name">dept.report.pivot</field>
+            <field name="model">dept.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Income Analysis" disable_linking="True" sample="1">
+                    <field name="c_dept_code" type="row"/>
+                    <field name="c_dept_name" type="row"/>
+                    <field name="i_money" type="measure"/>
+                    <field name="i_all_money" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>

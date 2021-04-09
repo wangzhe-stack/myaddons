@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem name="物品申领" id="menu_inventory_top"/>
+
+        <menuitem name="物资档案" id="menu_inventory" parent="menu_inventory_top" action="action_inventory" sequence="5"/>
+        <menuitem id="menu_inventory_apply" parent="menu_inventory_top" action="action_inventory_apply"
+                  name="物品申领单" sequence="10"/>
+        <menuitem name="业务员档案" id="menu_person" parent="menu_inventory_top" action="action_person" sequence="15"/>
+    </data>
+</odoo>

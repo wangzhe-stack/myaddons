@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--菜单-->
+        <menuitem name="地勘基金项目管理" id="menu_geo_top"/>
+
+        <menuitem name="项目管理" id="menu_geo_project" parent="menu_geo_top" sequence="10"/>
+        <menuitem name="立项阶段" id="menu_geo_project_set" parent="menu_geo_project"
+                  action="action_geo_project_set" sequence="10" groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="设计阶段" id="menu_geo_project_design" parent="menu_geo_project"
+                  action="action_geo_project_design" sequence="15" groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="实施阶段" id="menu_geo_project_execute" parent="menu_geo_project"
+                  action="action_geo_project_implement" sequence="20" groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="报告阶段" id="menu_geo_project_report" parent="menu_geo_project"
+                  action="action_geo_project_report" sequence="30" groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="项目变更" id="menu_geo_project_change" parent="menu_geo_project"
+                  action="action_geo_project_change" sequence="40" groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="项目查询" id="menu_geo_project_search" parent="menu_geo_project"
+                  action="action_geo_project_search" sequence="50"/>
+        <menuitem name="项目管理" id="menu_geo_project_management" parent="menu_geo_project"
+                  action="action_geo_project_manage" sequence="60" groups="geo_project_manager,geo_system_manager"/>
+
+        <menuitem name="GIS查询" id="menu_geo_gis_search" parent="menu_geo_top" sequence="20"
+                  action="client_gis_search"/>
+
+        <menuitem name="月报管理" id="menu_geo_monthly_magazine" parent="menu_geo_top" sequence="30"
+                  groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="整装勘查月报填报" id="menu_geo_monthly_prospect_report" parent="menu_geo_monthly_magazine"
+                  sequence="10" action="action_geo_monthly_prospect_report"/>
+        <menuitem name="综合月报填报" id="menu_geo_monthly_synthesize_fill" parent="menu_geo_monthly_magazine"
+                  sequence="20" action="action_geo_monthly_synthesize_fill"/>
+        <menuitem name="勘查月报填报" id="menu_geo_monthly_prospecting_fill" parent="menu_geo_monthly_magazine"
+                  sequence="30" action="action_geo_monthly_prospecting_fill"/>
+
+        <menuitem name="政策法规" id="menu_geo_regulations" parent="menu_geo_top" sequence="40"
+                  groups="geo_system_manager"/>
+        <menuitem name="法律法规" id="menu_geo_regulations_laws" parent="menu_geo_regulations"
+                  action="action_geo_regulations_laws" sequence="10"/>
+        <menuitem name="通知公告" id="menu_geo_regulations_inform" parent="menu_geo_regulations"
+                  action="action_geo_regulations_informs" sequence="20"/>
+
+        <menuitem name="基础信息" id="menu_geo_base" parent="menu_geo_top" sequence="50"
+                  groups="geo_project_manager,geo_system_manager"/>
+        <menuitem name="地勘单位" id="menu_geo_base_unit" parent="menu_geo_base"
+                  action="action_geo_base_unit" sequence="10"/>
+        <menuitem name="矿种管理" id="menu_geo_base_mineral" parent="menu_geo_base"
+                  action="action_geo_base_mineral" sequence="20"/>
+        <menuitem name="勘查阶段" id="menu_geo_base_stage" parent="menu_geo_base"
+                  action="action_geo_base_prospecting_stage" sequence="30"/>
+        <menuitem name="项目性质" id="menu_geo_base_nature" parent="menu_geo_base"
+                  action="action_geo_base_project_property" sequence="40"/>
+        <menuitem name="地区管理" id="menu_geo_base_area" parent="menu_geo_base"
+                  action="action_geo_base_area_management" sequence="50"/>
+        <menuitem name="项目变更类型" id="menu_geo_base_change" parent="menu_geo_base"
+                  action="action_geo_base_project_change_type" sequence="60"/>
+        <menuitem name="批次类别维护" id="menu_geo_base_batch_category" parent="menu_geo_base"
+                  action="action_geo_base_batch_category" sequence="70"/>
+        <menuitem name="工作量维护" id="menu_geo_base_workload" parent="menu_geo_base"
+                  action="action_geo_base_workload_maintain" sequence="80"/>
+        <menuitem name="项目批次" id="menu_geo_base_batch" parent="menu_geo_base"
+                  action="action_geo_base_batch_maintain" sequence="90"/>
+
+        <menuitem name="系统设置" id="menu_geo_system_set" parent="menu_geo_top" sequence="60"
+                  groups="geo_system_manager,geo_project_manager"/>
+        <menuitem name="参数设置" id="menu_geo_system_set_param" parent="menu_geo_system_set"
+                  action="action_geo_param_setting" sequence="10" groups="geo_system_manager"/>
+        <menuitem name="文档目录" id="menu_geo_system_set_doc" parent="menu_geo_system_set"
+                  action="action_geo_doc_catalog" sequence="20" groups="geo_system_manager"/>
+        <menuitem name="目录管理" id="menu_geo_system_set_catalog" parent="menu_geo_system_set"
+                  action="action_geo_catalog_manage" sequence="30"/>
+
+        <menuitem name="系统管理" id="menu_geo_system" parent="menu_geo_top" sequence="70"
+                  groups="geo_system_manager"/>
+        <menuitem name="用户管理" id="menu_geo_system_user" parent="menu_geo_system" sequence="10"
+                  action="action_geo_system_user"/>
+        <menuitem name="部门管理" id="menu_geo_system_department" parent="menu_geo_system" sequence="20"
+                  action="action_geo_system_dept"/>
+        <menuitem name="角色管理" id="menu_geo_system_role" parent="menu_geo_system" sequence="30"
+                  action="action_geo_system_groups"/>
+
+        <menuitem name="综合查询" id="menu_geo_search" parent="menu_geo_top" sequence="80"/>
+        <menuitem name="地区查询" id="menu_geo_search_region" parent="menu_geo_search"
+                  action="action_project_area_search" sequence="10"/>
+<!--        <menuitem name="矿种查询" id="menu_geo_search_mineral" parent="menu_geo_search"-->
+<!--                  action="action_project_mineral_search" sequence="20"/>-->
+<!--        <menuitem name="高级查询" id="menu_geo_search_advanced" parent="menu_geo_search"-->
+<!--                  action="action_geo_base_unit" sequence="30"/>-->
+        <menuitem name="附件查询" id="menu_geo_search_attachment" parent="menu_geo_search"
+                  action="action_project_attachment_search" sequence="40"/>
+        <menuitem name="批次查询" id="menu_geo_search_batch" parent="menu_geo_search"
+                  action="action_project_batch_search" sequence="50"/>
+        <menuitem name="承建单位查询" id="menu_geo_search_construction" parent="menu_geo_search"
+                  action="action_project_assume_search" sequence="60"/>
+        <menuitem name="勘查单位查询" id="menu_geo_search_exploration" parent="menu_geo_search"
+                  action="action_project_prospecting_search" sequence="70"/>
+        <!--        <menuitem name="项目计划表" id="menu_geo_search_"/>-->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="geo_monthly_prospect_report_tree" model="ir.ui.view">
+            <field name="name">geo.monthly.prospect.report.tree</field>
+            <field name="model">geo.monthly.prospect.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="prospect_main"/>
+                    <field name="prospect_level"/>
+                    <field name="report_period"/>
+                    <field name="quarter"/>
+                    <field name="report_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_monthly_prospect_report_form" model="ir.ui.view">
+            <field name="name">geo.monthly.prospect.report.form</field>
+            <field name="model">geo.monthly.prospect.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h2>基本信息</h2>
+                        <group>
+                            <group>
+                                <field name="id" invisible="1"/>
+                                <field name="report_date"/>
+                                <field name="quarter"/>
+                                <field name="project_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="report_period"/>
+                                <field name="prospect_main"  options="{'no_create_edit': True, 'no_open': True}"/>
+                                <field name="prospect_level"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="整装勘查月报明细填报">
+                                <field name="report_line_ids" context="{'default_report_id': id}">
+                                    <tree>
+                                        <field name="report_id" invisible="1"/>
+                                        <field name="mineral"/>
+                                        <field name="unit"/>
+                                        <field name="central_finance"/>
+                                        <field name="province_finance"/>
+                                        <field name="social_funds"/>
+                                        <field name="total_finance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_monthly_prospect_report_line_form" model="ir.ui.view">
+            <field name="name">geo.monthly.prospect.report.line.form</field>
+            <field name="model">geo.monthly.prospect.report.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="report_id" invisible="1"/>
+                                <field name="mineral" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                <label for="central_finance"/>
+                                <div>
+                                    <field name="central_finance" class="oe_inline"/>万元
+                                </div>
+                                <label for="province_finance"/>
+                                <div>
+                                    <field name="province_finance" class="oe_inline"/>万元
+                                </div>
+                                <field name="reference_above333"/>
+                                <field name="estimate_above333"/>
+                                <field name="year2_goal"/>
+                                <field name="year5_goal"/>
+                            </group>
+                            <group>
+                                <field name="unit"/>
+                                <label for="social_funds"/>
+                                <div>
+                                    <field name="social_funds" class="oe_inline"/>万元
+                                </div>
+                                <label for="total_finance"/>
+                                <div>
+                                    <field name="total_finance" class="oe_inline"/>万元
+                                </div>
+                                <field name="estimate333"/>
+                                <field name="total"/>
+                                <field name="finish_percent2"/>
+                                <field name="finish_percent5"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem name="产品" id="menu_demo_product_top" web_icon="myproduct,static/description/icon.png"/>
+        <menuitem name="产品样例" id="menu_demo_product" parent="menu_demo_product_top" action="action_demo_product"/>
+
+<!--        <menuitem name="产品" id="menu_product" parent="menu_demo_product_top" action="client_demo_product"/>-->
+        <menuitem name="成员" id="menu_member" parent="menu_demo_product_top" action="action_member"/>
+<!--        <menuitem name="成员GRID" id="menu_member_tree" parent="menu_demo_product_top" action="client_member"/>-->
+        <menuitem name="地址" id="menu_address" parent="menu_demo_product_top" action="action_address"/>
+    </data>
+</odoo>

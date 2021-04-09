@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="demo_product_tree" model="ir.ui.view">
+            <field name="name">demo.product.tree</field>
+            <field name="model">demo.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="product"/>
+                    <field name="available"/>
+                    <field name="ship_date"/>
+                    <field name="quantity"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="demo_product_form" model="ir.ui.view">
+            <field name="name">demo.product.form</field>
+            <field name="model">demo.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="product"/>
+                            <field name="available"/>
+                            <field name="ship_date"/>
+                            <field name="quantity"/>
+                            <field name="price"/>
+                            <field name="attachment_id" widget="many2many_binary"/>
+                        </group>
+                    </sheet>
+                    <div class="o_attachment_preview"/>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

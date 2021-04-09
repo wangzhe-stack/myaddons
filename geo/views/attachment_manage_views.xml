@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="geo_attachment_manage_tree" model="ir.ui.view">
+            <field name="name">geo.attachment.manage.tree</field>
+            <field name="model">geo.attachment.manage</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false">
+                    <field name="batch"/>
+                    <field name="project_code"/>
+                    <field name="project_name"/>
+                    <field name="assume_unit"/>
+                    <field name="property"/>
+                    <field name="stage"/>
+                    <field name="catalog_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_attachment_manage_form" model="ir.ui.view">
+            <field name="name">geo.attachment.manage.form</field>
+            <field name="model">geo.attachment.manage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="project_code"/>
+                            </group>
+                            <group>
+                                <field name="project_id" readonly="1"  options='{"no_open": True}'/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="stage" readonly="1"/>
+                            <field name="catalog_id"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" context="{'stage': stage}"/>
+                            <field name="attachment_ids" filename="attachment_name" widget="man2many_files_preview"/>
+                            <field name="attachment_name" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_attachment_manage_search_form" model="ir.ui.view">
+            <field name="name">geo.attachment.manage.search.form</field>
+            <field name="model">geo.attachment.manage</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false" dupliate="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="project_code"/>
+                            </group>
+                            <group>
+                                <field name="project_id" readonly="1"  options='{"no_open": True}'/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="stage" readonly="1"/>
+                            <field name="catalog_id" options='{"no_open": True}' context="{'stage': stage}"/>
+                            <field name="attachment_ids" filename="attachment_name" widget="man2many_files_preview"/>
+                            <field name="attachment_name" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_attachment_manage_search" model="ir.ui.view">
+            <field name="name">geo.attachment.manage.search</field>
+            <field name="model">geo.attachment.manage</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="project_id"/>
+                    <field name="project_name"/>
+                    <field name="project_code"/>
+                    <field name="property"/>
+                    <field name="batch"/>
+                    <field name="assume_unit"/>
+                    <field name="project_code"/>
+                    <searchpanel>
+                        <field name="project_id" enable_counters="1"/>
+                        <field name="batch" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,330 @@
+@font-face {
+    font-family: 'emojifont';
+    src: local('Segoe UI'),
+         local('Apple Color Emoji'),
+         local('Android Emoji'),
+         local('Noto Color Emoji'),
+         local('Twitter Color Emoji'),
+         local('Twitter Color'),
+         local('EmojiOne Color'),
+         local('EmojiOne'),
+         local(EmojiSymbols),
+         local(Symbola);
+}
+
+
+
+@mixin o-viewer-black-btn {
+    background-color: rgba(black, 0.4);
+    color: rgba(theme-color('light'), 0.7);
+
+    &:hover {
+        background-color: rgba(black, 0.6);
+        color: white;
+    }
+
+    &.disabled {
+        color: gray('600');
+        background: none;
+    }
+}
+
+.o_modal_inventory {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    padding: 50px;
+
+
+    .o_viewer_content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .o_viewer_header {
+            @include o-position-absolute(0, 0, $left: 0);
+            height: 45px;
+            padding: $grid-gutter-width*0.5;
+            background-color: rgba(black, 1);
+            z-index: 1;
+            color: #FFFFFF;
+
+            a {
+                @include o-hover-text-color(rgba(theme-color('light'), 0.6), white);
+            }
+
+            .o_close_btn {
+                @include o-position-absolute(-1px, $grid-gutter-width*0.5);
+                font-size: $h1-font-size;
+                font-weight: 300;
+            }
+
+            .o_image_caption {
+                bottom: 20%;
+                position: absolute;
+            }
+        }
+
+        .o_loading_img {
+            @include o-position-absolute($top: 45%, $right: 0, $left: 0);
+        }
+
+        .o_viewer_img_wrapper {
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            background-color: white;
+            padding: 20px;
+            overflow-y: auto;
+
+            .o_viewer_zoomer {
+                width: 100%;
+                height: 100%;
+                display: block;
+                justify-content: center;
+                align-items: center;
+                padding: 45px 0px 20px 0px;
+
+                thead {
+                    .pro-code {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-name {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-std {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-unit {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-price {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-quantity {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        width: 180px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+                    }
+
+                    .pro-num {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                    .pro-remove {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 20px;
+                        text-align: center;
+
+                    }
+                }
+
+                tbody {
+                    .pro-index {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+
+                    .pro-code {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-name {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-std {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-unit {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-price {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-quantity {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        width: 180px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                    }
+
+                    .pro-num {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                    .pro-remove {
+                        border-color: #eceff8;
+                        border-bottom: 0 solid transparent;
+                        color: #000000;
+                        font-size: 20px;
+                        font-weight: 500;
+                        padding: 15px 20px;
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+
+                    .quantity {
+
+                        .cart-plus-minus {
+                            position: relative;
+                            width: 150px;
+                            text-align: left;
+                            height: 36px;
+                            overflow: hidden;
+
+                            .cart-plus-minus-box {
+                                border: 1px solid #dddddd;
+                                height: 36px;
+                                text-align: center;
+                                width: 150px;
+                                background: #ffffff;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+            .o_viewer_footer {
+                text-align: center;
+
+                button {
+                    margin-right: 18px;
+                }
+            }
+
+        }
+
+        .o_viewer_toolbar {
+            @include o-position-absolute($bottom: $grid-gutter-width*0.5);
+            width: 100%;
+            overflow: hidden;
+            justify-content: center;
+            border-radius: 4px;
+
+            > .btn-group {
+                background-color: rgba(black, 0.4);
+            }
+
+            .o_viewer_toolbar_btn {
+                @include o-viewer-black-btn;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+    }
+
+    .arrow {
+        @include o-position-absolute(50%, $grid-gutter-width*0.5);
+        border-radius: 100%;
+        padding: 12px 16px 11px 18px;
+        @include o-viewer-black-btn;
+    }
+
+    .arrow-left {
+        left: $grid-gutter-width*0.5;
+        right: auto;
+        padding: 12px 18px 11px 16px;
+    }
+}

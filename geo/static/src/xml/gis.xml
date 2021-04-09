@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="geo_gis_search">
+        <div class="page-header" style="padding: 10px 50px;">
+            <label for="code" class="pj-label" style="margin-left:80px;font-weight:800;">项目编码：</label>
+            <input id="code"/>
+            <label for="name" class="pj-label" style="margin-left:80px;font-weight:800;">项目名称：</label>
+            <input id="name"/>
+            <button type="button" id="search" t-attf-class="btn btn-primary" style="margin-left:80px;">查询</button>
+            <button type="button" id="clear" t-attf-class="btn btn-secondary">清空</button>
+        </div>
+        <div style="width:100%;border-bottom: 1px solid black;"></div>
+        <div id="allmap" style="margin:5px 10px;height:500px;">
+
+        </div>
+    </t>
+</templates>

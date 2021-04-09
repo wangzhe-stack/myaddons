@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="geo_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/geo/static/src/scss/composer.scss"/>
+
+<!--            	<link href="/attachments_preview_ms_google/static/src/css/attachment_dragdrop.css" rel="stylesheet" />-->
+                <script type="text/javascript" src="/geo/static/src/js/basic_fields.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+                <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&amp;ak=BWhWjGE4jbOqcrYklP1YbiKTAn6CA1dj"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+<!--                <script type="text/javascript" src="/geo/static/src/js/echarts.js"></script>-->
+<!--                <script type="text/javascript" src="/geo/static/src/js/china.js"></script>-->
+<!--                <script type="text/javascript" src="/geo/static/src/js/echarts.js.map"></script>-->
+                <script type="text/javascript" src="/geo/static/src/js/gis.js"></script>
+                <script type="text/javascript" src="/geo/static/src/js/man2many_files_preview.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="module_inventory_category" model="ir.module.category">
+            <field name="name">物资申请单</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="inventory_manager" model="res.groups">
+            <field name="name">管理员</field>
+            <field name="category_id" ref="inventory_apply.module_inventory_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="inventory_apply_user_rule" model="ir.rule">
+            <field name="name">用户仅能看见自己创建的项目</field>
+            <field name="model_id" ref="inventory_apply.model_inventory_apply"/>
+            <field name="domain_force">[('create_uid','=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+    </data>
+</odoo>

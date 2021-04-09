@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_geo_monthly_prospecting_fill_tree" model="ir.ui.view">
+            <field name="name">geo.monthly.prospecting.fill.tree</field>
+            <field name="model">geo.monthly.prospecting.fill</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="reporting_date"/>
+                    <field name="reporting_period"/>
+                    <field name="project_id"/>
+                    <field name="prospecting_unit"/>
+                    <field name="code"/>
+                    <field name="batch"/>
+                    <field name="area"/>
+                    <field name="plan_funds"/>
+                    <field name="this_month_funds"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_geo_monthly_prospecting_fill_form" model="ir.ui.view">
+            <field name="name">geo.monthly.prospecting.fill.form</field>
+            <field name="model">geo.monthly.prospecting.fill</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="reporting_date"/>
+                            <field name="reporting_period"/>
+                            <field name="project_id"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="prospecting_unit"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="code"/>
+                            <field name="batch"/>
+                            <field name="area"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="mineral" widget="many2many_tags"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <label for="plan_funds"/>
+                            <div>
+                                <field name="plan_funds" class="oe_inline"/>万元
+                            </div>
+                            <label for="this_month_funds"/>
+                            <div>
+                                <field name="this_month_funds" class="oe_inline"/>万元
+                            </div>
+                        </group>
+                        <group>
+                            <field name="progress_and_results"/>
+                            <field name="work_arrangements_and_suggestions"/>
+                            <field name="memo"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="data_geo_base_mineral_1" model="geo.base.mineral">
+            <field name="name">铷</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_2" model="geo.base.mineral">
+            <field name="name">钨</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_3" model="geo.base.mineral">
+            <field name="name">铌</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_4" model="geo.base.mineral">
+            <field name="name">锰</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_5" model="geo.base.mineral">
+            <field name="name">钴</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_6" model="geo.base.mineral">
+            <field name="name">钛</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_7" model="geo.base.mineral">
+            <field name="name">钒</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_8" model="geo.base.mineral">
+            <field name="name">铀</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_9" model="geo.base.mineral">
+            <field name="name">镍</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_10" model="geo.base.mineral">
+            <field name="name">银</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_11" model="geo.base.mineral">
+            <field name="name">金</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_12" model="geo.base.mineral">
+            <field name="name">锑</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_13" model="geo.base.mineral">
+            <field name="name">汞</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+        <record id="data_geo_base_mineral_14" model="geo.base.mineral">
+            <field name="name">铁</field>
+            <field name="description"/>
+            <field name="type">metal</field>
+        </record>
+
+        <record id="data_geo_base_prospecting_stage_1" model="geo.base.prospecting.stage">
+            <field name="name">普详查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_2" model="geo.base.prospecting.stage">
+            <field name="name">综合研究</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_3" model="geo.base.prospecting.stage">
+            <field name="name">远景调查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_4" model="geo.base.prospecting.stage">
+            <field name="name">预测研究</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_5" model="geo.base.prospecting.stage">
+            <field name="name">普（预）查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_6" model="geo.base.prospecting.stage">
+            <field name="name">预普查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_7" model="geo.base.prospecting.stage">
+            <field name="name">勘查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_8" model="geo.base.prospecting.stage">
+            <field name="name">调查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_9" model="geo.base.prospecting.stage">
+            <field name="name">详查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_10" model="geo.base.prospecting.stage">
+            <field name="name">普查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_prospecting_stage_11" model="geo.base.prospecting.stage">
+            <field name="name">预查</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_project_property_1" model="geo.base.project.property">
+            <field name="name">新开</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_project_property_2" model="geo.base.project.property">
+            <field name="name">续作</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_project_property_3" model="geo.base.project.property">
+            <field name="name">新开（空白区）</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_project_property_4" model="geo.base.project.property">
+            <field name="name">新开（科研）</field>
+            <field name="description"/>
+        </record>
+        <record id="data_geo_base_project_property_5" model="geo.base.project.property">
+            <field name="name">新开（自有矿权）</field>
+            <field name="description"/>
+        </record>
+
+        <record id="geo_base_batch_maintain_data_1" model="geo.base.batch.maintain">
+            <field name="name">2021(第一批)</field>
+        </record>
+        <record id="geo_base_batch_maintain_data_2" model="geo.base.batch.maintain">
+            <field name="name">2021(第二批)</field>
+        </record>
+        <record id="geo_base_batch_maintain_data_3" model="geo.base.batch.maintain">
+            <field name="name">2020(第一批)</field>
+        </record>
+        <record id="geo_base_batch_maintain_data_4" model="geo.base.batch.maintain">
+            <field name="name">2019(第一批)</field>
+        </record>
+
+        <record id="geo_base_workload_maintain_data_1" model="geo.base.workload.maintain">
+            <field name="name">槽探</field>
+        </record>
+        <record id="geo_base_workload_maintain_data_2" model="geo.base.workload.maintain">
+            <field name="name">钻探</field>
+        </record>
+        <record id="geo_base_workload_maintain_data_3" model="geo.base.workload.maintain">
+            <field name="name">坑探</field>
+        </record>
+
+        <record id="geo_base_batch_category_data_1" model="geo.base.batch.category">
+            <field name="name">无</field>
+        </record>
+        <record id="geo_base_batch_category_data_2" model="geo.base.batch.category">
+            <field name="name">煤炭</field>
+        </record>
+        <record id="geo_base_batch_category_data_3" model="geo.base.batch.category">
+            <field name="name">续作</field>
+        </record>
+        <record id="geo_base_batch_category_data_4" model="geo.base.batch.category">
+            <field name="name">招标</field>
+        </record>
+        <record id="geo_base_batch_category_data_5" model="geo.base.batch.category">
+            <field name="name">整装区内、科研、续作</field>
+        </record>
+        <record id="geo_base_batch_category_data_6" model="geo.base.batch.category">
+            <field name="name">科研、续作、自有矿权</field>
+        </record>
+
+        <record id="geo_base_project_change_type_data_1" model="geo.base.project.change.type">
+            <field name="name">钻探专项设计</field>
+        </record>
+        <record id="geo_base_project_change_type_data_2" model="geo.base.project.change.type">
+            <field name="name">钻探调整</field>
+        </record>
+        <record id="geo_base_project_change_type_data_3" model="geo.base.project.change.type">
+            <field name="name">钻探实施</field>
+        </record>
+        <record id="geo_base_project_change_type_data_4" model="geo.base.project.change.type">
+            <field name="name">钻探设计</field>
+        </record>
+        <record id="geo_base_project_change_type_data_5" model="geo.base.project.change.type">
+            <field name="name">钻探施工</field>
+        </record>
+        <record id="geo_base_project_change_type_data_6" model="geo.base.project.change.type">
+            <field name="name">钻探工作量</field>
+        </record>
+
+        <record id="geo_base_area_management_data_1" model="geo.base.area.management">
+            <field name="name">陕西省 西安市</field>
+        </record>
+        <record id="geo_base_area_management_data_2" model="geo.base.area.management">
+            <field name="name">陕西省 咸阳市</field>
+        </record>
+        <record id="geo_base_area_management_data_3" model="geo.base.area.management">
+            <field name="name">陕西省 宝鸡市</field>
+        </record>
+        <record id="geo_base_area_management_data_4" model="geo.base.area.management">
+            <field name="name">陕西省 榆林市</field>
+        </record>
+        <record id="geo_base_area_management_data_5" model="geo.base.area.management">
+            <field name="name">陕西省 延安市</field>
+        </record>
+        <record id="geo_base_area_management_data_6" model="geo.base.area.management">
+            <field name="name">陕西省 渭南市</field>
+        </record>
+        <record id="geo_base_area_management_data_7" model="geo.base.area.management">
+            <field name="name">陕西省 商洛市</field>
+        </record>
+        <record id="geo_base_area_management_data_8" model="geo.base.area.management">
+            <field name="name">陕西省 铜川市</field>
+        </record>
+        <record id="geo_base_area_management_data_9" model="geo.base.area.management">
+            <field name="name">陕西省 安康市</field>
+        </record>
+        <record id="geo_base_area_management_data_10" model="geo.base.area.management">
+            <field name="name">陕西省 汉中市</field>
+        </record>
+
+        <record id="geo_system_dept_data_1" model="geo.system.dept">
+            <field name="name">陕西国土厅</field>
+        </record>
+        <record id="geo_system_dept_data_2" model="geo.system.dept">
+            <field name="name">信息科</field>
+            <field name="parent_id" ref="geo_system_dept_data_1"/>
+        </record>
+
+        <record id="geo_catalog_manage_data_1" model="geo.catalog.manage">
+            <field name="name">立项阶段</field>
+        </record>
+        <record id="geo_catalog_manage_data_2" model="geo.catalog.manage">
+            <field name="name">概述</field>
+            <field name="parent_id" ref="geo_catalog_manage_data_1"/>
+        </record>
+        <record id="geo_catalog_manage_data_3" model="geo.catalog.manage">
+            <field name="name">任务书</field>
+            <field name="parent_id" ref="geo_catalog_manage_data_1"/>
+        </record>
+         <record id="geo_catalog_manage_data_4" model="geo.catalog.manage">
+            <field name="name">设计阶段</field>
+        </record>
+          <record id="geo_catalog_manage_data_5" model="geo.catalog.manage">
+            <field name="name">正文</field>
+            <field name="parent_id" ref="geo_catalog_manage_data_4"/>
+        </record>
+         <record id="geo_catalog_manage_data_6" model="geo.catalog.manage">
+            <field name="name">附件</field>
+            <field name="parent_id" ref="geo_catalog_manage_data_4"/>
+        </record>
+
+    </data>
+</odoo>

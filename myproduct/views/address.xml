@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="address_tree" model="ir.ui.view">
+            <field name="name">address.tree</field>
+            <field name="model">address</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
+                    <field name="town"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

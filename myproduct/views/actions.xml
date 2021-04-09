@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_demo_product" model="ir.actions.act_window">
+            <field name="name">产品样例</field>
+            <field name="res_model">demo.product</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!--        <record id="client_demo_product" model="ir.actions.client">-->
+<!--            <field name="name">产品</field>-->
+<!--            <field name="tag">action_report_product</field>-->
+<!--        </record>-->
+
+<!--        <record id="client_member" model="ir.actions.client">-->
+<!--            <field name="name">成员GRID</field>-->
+<!--            <field name="tag">action_report_member</field>-->
+<!--        </record>-->
+
+        <record id="action_member" model="ir.actions.act_window">
+            <field name="name">成员</field>
+            <field name="res_model">member</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_address" model="ir.actions.act_window">
+            <field name="name">地址</field>
+            <field name="res_model">address</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

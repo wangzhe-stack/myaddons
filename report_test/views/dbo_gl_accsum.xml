@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="dbo_gl_accsum_tree" model="ir.ui.view">
+            <field name="name">dbo.gl.accsum.tree</field>
+            <field name="model">gl.accsum</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="ccode"/>
+                    <field name="cexch_name"/>
+                    <field name="iperiod"/>
+                    <field name="cbegind_c"/>
+                    <field name="cbegind_c_engl"/>
+                    <field name="mb"/>
+                    <field name="md"/>
+                    <field name="mc"/>
+                    <field name="cendd_c"/>
+                    <field name="cendd_c_engl"/>
+                    <field name="me"/>
+                    <field name="mb_f"/>
+                    <field name="md_f"/>
+                    <field name="mc_f"/>
+                    <field name="me_f"/>
+                    <field name="nb_s"/>
+                    <field name="nd_s"/>
+                    <field name="nc_s"/>
+                    <field name="ne_s"/>
+                    <field name="iyear"/>
+                    <field name="i_yperiod"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

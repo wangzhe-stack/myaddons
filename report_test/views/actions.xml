@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Model-->
+        <record id="action_gl_accsum" model="ir.actions.act_window">
+            <field name="name">gl.accsum</field>
+            <field name="res_model">gl.accsum</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_code" model="ir.actions.act_window">
+            <field name="name">code</field>
+            <field name="res_model">code</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_ef_cost_dept" model="ir.actions.act_window">
+            <field name="name">ef.cost.dept</field>
+            <field name="res_model">ef.cost.dept</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_ef_cost_incmdatam" model="ir.actions.act_window">
+            <field name="name">ef.cost.incmdatam</field>
+            <field name="res_model">ef.cost.incmdatam</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_ef_cost_costshare" model="ir.actions.act_window">
+            <field name="name">ef.cost.costshare</field>
+            <field name="res_model">ef.cost.costshare</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_ef_cost_chargekinddata" model="ir.actions.act_window">
+            <field name="name">ef.cost.chargekinddata</field>
+            <field name="res_model">ef.cost.chargekinddata</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <!--==========================================================================-->
+        <!--Report-->
+        <record id="action_income_report" model="ir.actions.act_window">
+            <field name="name">income.report</field>
+            <field name="res_model">income.report</field>
+            <field name="view_mode">graph,pivot,tree</field>
+        </record>
+
+        <record id="action_dept_report" model="ir.actions.act_window">
+            <field name="name">dept.report</field>
+            <field name="res_model">dept.report</field>
+            <field name="view_mode">graph,pivot,tree</field>
+        </record>
+
+        <!--jqx_report-->
+        <record id="client_income_report" model="ir.actions.client">
+            <field name="name">Income</field>
+            <field name="tag">action_report_income</field>
+        </record>
+        <record id="client_dept_report" model="ir.actions.client">
+            <field name="name">Dept</field>
+            <field name="tag">action_report_dept</field>
+        </record>
+
+
+    </data>
+</odoo>

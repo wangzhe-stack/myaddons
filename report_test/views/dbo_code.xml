@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="dbo_code_tree" model="ir.ui.view">
+            <field name="name">dbo.code.tree</field>
+            <field name="model">code</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="cclass"/>
+                    <field name="cclass_engl"/>
+                    <field name="cclassany"/>
+                    <field name="cclassany_engl"/>
+                    <field name="ccode"/>
+                    <field name="ccode_name"/>
+                    <field name="ccode_engl"/>
+                    <field name="igrade"/>
+                    <field name="bproperty"/>
+                    <field name="cbook_type"/>
+                    <field name="cbook_type_engl"/>
+                    <field name="chelp"/>
+                    <field name="cexch_name"/>
+                    <field name="cmeasure"/>
+                    <field name="bperson"/>
+                    <field name="bcus"/>
+                    <field name="bsup"/>
+                    <field name="bdept"/>
+                    <field name="bitem"/>
+                    <field name="cass_item"/>
+                    <field name="br"/>
+                    <field name="be"/>
+                    <field name="cgather"/>
+                    <field name="bend"/>
+                    <field name="bexchange"/>
+                    <field name="bcash"/>
+                    <field name="bbank"/>
+                    <field name="bused"/>
+                    <field name="bbank"/>
+                    <field name="bd_c"/>
+                    <field name="dbegin"/>
+                    <field name="itrans"/>
+                    <field name="bclose"/>
+                    <field name="cother"/>
+                    <field name="iotherused"/>
+                    <field name="bc_define1"/>
+                    <field name="bc_define2"/>
+                    <field name="bc_define3"/>
+                    <field name="bc_define4"/>
+                    <field name="bc_define5"/>
+                    <field name="bc_define6"/>
+                    <field name="bc_define7"/>
+                    <field name="bc_define8"/>
+                    <field name="bc_define9"/>
+                    <field name="bc_define10"/>
+                    <field name="bc_define11"/>
+                    <field name="bc_define12"/>
+                    <field name="bc_define13"/>
+                    <field name="bc_define14"/>
+                    <field name="bc_define15"/>
+                    <field name="bc_define16"/>
+                    <field name="i_view_item"/>
+                    <field name="b_gcjs"/>
+                    <field name="b_cash_item"/>
+                    <field name="pubufts"/>
+                    <field name="b_report"/>
+                    <field name="c_user_define_type"/>
+                    <field name="iyear"/>
+                    <field name="d_modify_date"/>
+                    <field name="b_generate"/>
+                    <field name="bungenerate"/>
+                    <field name="bcykm"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

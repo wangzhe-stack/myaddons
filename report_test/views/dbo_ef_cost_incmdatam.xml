@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ef_cost_incmdatam_tree" model="ir.ui.view">
+            <field name="name">ef.cost.incmdatam.tree</field>
+            <field name="model">ef.cost.incmdatam</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="c_code"/>
+                    <field name="c_vouch_type"/>
+                    <field name="d_date"/>
+                    <field name="c_year"/>
+                    <field name="c_month"/>
+                    <field name="i_money"/>
+                    <field name="c_maker"/>
+                    <field name="c_verifier"/>
+                    <field name="d_veri_date"/>
+                    <field name="dcreatesystime"/>
+                    <field name="dnmodifytime"/>
+                    <field name="cmodifier"/>
+                    <field name="iverifystate"/>
+                    <field name="ireturncount"/>
+                    <field name="iswfcontrolled"/>
+                    <field name="cdefine1"/>
+                    <field name="cdefine2"/>
+                    <field name="cdefine3"/>
+                    <field name="cdefine4"/>
+                    <field name="cdefine5"/>
+                    <field name="cdefine6"/>
+                    <field name="cdefine7"/>
+                    <field name="cdefine8"/>
+                    <field name="cdefine9"/>
+                    <field name="cdefine10"/>
+                    <field name="cdefine11"/>
+                    <field name="cdefine12"/>
+                    <field name="cdefine13"/>
+                    <field name="cdefine14"/>
+                    <field name="cdefine15"/>
+                    <field name="cdefine16"/>
+                    <field name="vt_id"/>
+                    <field name="ufts"/>
+                    <field name="b_delete"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

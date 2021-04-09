@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="income_report_tree" model="ir.ui.view">
+            <field name="name">income.report.tree</field>
+            <field name="model">income.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ccode"/>
+                    <field name="cname"/>
+                    <field name="je"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="income_report_graph" model="ir.ui.view">
+            <field name="name">income.report.graph</field>
+            <field name="model">income.report</field>
+            <field name="arch" type="xml">
+                <graph string="Income Analysis" stacked="True" sample="1" disable_linking="1">
+                    <field name="cname" type="col"/>
+                    <field name="je" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="income_report_pivot" model="ir.ui.view">
+            <field name="name">income.report.pivot</field>
+            <field name="model">income.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Income Analysis" disable_linking="True" sample="1">
+                    <field name="cname" type="col"/>
+                    <field name="ccode" type="col"/>
+                    <field name="je" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>

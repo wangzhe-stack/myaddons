@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_geo_project_change_tree" model="ir.ui.view">
+            <field name="name">geo.project.change.tree</field>
+            <field name="model">geo.project.change</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="resource_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_geo_project_change_form" model="ir.ui.view">
+            <field name="name">geo.project.change.form</field>
+            <field name="model">geo.project.change</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="change_doc" icon="fa-file-text-o"
+                                    string="变更文档" widget="statinfo"/>
+                        </div>
+                        <group readonly="1" col='6'>
+                            <field name="area" options="{'no_open': True}"/>
+                            <field name="address" colspan='4'/>
+                            <field name="name" colspan='4'/>
+                            <newline/>
+                            <field name="assume_unit" options="{'no_open': True}"/>
+                            <field name="prospecting_unit" options="{'no_open': True}"/>
+                            <newline/>
+                            <field name="batch" options="{'no_open': True}"/>
+                            <field name="stage" options="{'no_open': True}"/>
+                            <field name="mineral" widget="many2many_tags"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="approve_date"/>
+                            <label for="prospecting_area"/>
+                            <div>
+                                <field name="prospecting_area" class="oe_inline"/>平方公里
+                            </div>
+                            <label for="investment_amount"/>
+                            <div>
+                                <field name="investment_amount" class="oe_inline"/>万元
+                            </div>
+                            <field name="project_id" invisible="1"/>
+
+                        </group>
+
+                        <group string='需要变更的信息' col='4'>
+                            <field name="change_type" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="change_batch" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            <field name="amount_change_type" widget="radio" required="1"/>
+                            <label for="investment_amount"/>
+                            <div>
+                                <field name="change_amount" required="1" class="oe_inline"/>万元
+                            </div>
+                            <field name="apply_date"/>
+                            <field name="approval_date"/>
+                            <field name="drawings_count"/>
+                            <field name="change_content" colspan='4'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

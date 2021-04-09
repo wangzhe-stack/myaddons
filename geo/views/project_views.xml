@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="geo_project_tree" model="ir.ui.view">
+            <field name="name">geo.project.tree</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="assume_unit"/>
+                    <field name="prospecting_unit"/>
+                    <field name="investment_amount"/>
+<!--                    <field name="survey"/>-->
+<!--                    <field name="catalog"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_project_other_stage_tree" model="ir.ui.view">
+            <field name="name">geo.project.tree</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="assume_unit"/>
+                    <field name="prospecting_unit"/>
+                    <field name="investment_amount"/>
+<!--                    <field name="survey"/>-->
+<!--                    <field name="catalog"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_project_other_stage_form" model="ir.ui.view">
+            <field name="name">geo.project.other.stage.form</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="0"/>
+            <field name="arch" type="xml">
+                <form create="false">
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                        <button name="set_to_design" string="转为设计" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'set')]}"/>
+                        <button name="design_to_implement" string="转为实施" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'design')]}"/>
+                        <button name="implement_to_report" string="转为报告" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'implement')]}"/>
+                        <button name="report_to_finish" string="转为完结" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'report')]}"/>
+                        <button name="project_change" string="项目变更" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="立项文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'set')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="设计文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'design')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="实施文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'implement')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="报告文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'report')]}"/>
+                        </div>
+                        <h2>项目基本信息</h2>
+                        <group>
+                            <group>
+                                <field name="property" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="area" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="name" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="assume_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="mineral" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"
+                                       widget="many2many_tags"/>
+                                <field name="approve_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="longitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="latitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="resource_amount" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="field_accept_date" readonly="1" attrs="{'invisible': [('status', '!=', 'implement')],
+                                       'required': [('status', '=', 'implement')]}"/>
+                                <field name="review_date" readonly="1" attrs="{'invisible': [('status', '!=', 'report')],
+                                       'required': [('status', '=', 'report')]}"/>
+                            </group>
+                            <group>
+                                <field name="code" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="address" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="prospecting_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch_category" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="stage" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="start_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="end_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <label for="prospecting_area"/>
+                                <div>
+                                    <field name="prospecting_area" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>平方公里
+                                </div>
+                                <label for="investment_amount"/>
+                                <div>
+                                    <field name="investment_amount" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>万元
+                                </div>
+                                <field name="concurrent_date" attrs="{'invisible': [('status', '!=', 'report')],
+                                       'required': [('status', '=', 'report')]}"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'report')]}">
+                            <field name="manage_survey" readonly="1" />
+                            <field name="result_summary" readonly="1" />
+                            <field name="expect_result" readonly="1" />
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'set')]}">
+                            <field name="survey"/>
+                            <field name="catalog"/>
+                            <field name="goal"/>
+                            <field name="design_workload"/>
+                            <field name="expect_result"/>
+                            <field name="note"/>
+                        </group>
+                        <notebook>
+                            <page string="工作量工作项目明细">
+                                <field name="workload_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="name" required="1"/>
+                                        <field name="workload" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="拐点坐标">
+                                <field name="coordinate_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="coordinate54"/>
+                                        <field name="coordinate80"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_project_search_form" model="ir.ui.view">
+            <field name="name">geo.project.search.form</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="0"/>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false" duplicate="false">
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="view_doc" icon="fa-file-text-o"
+                                    string="立项文档" widget="statinfo" context="{'status':'set'}"
+                                    attrs="{'invisible': [('status', '!=', 'finish'), ('status', '!=', 'set')]}"/>
+                            <button class="oe_stat_button" type="object" name="view_doc" icon="fa-file-text-o"
+                                    string="设计文档" widget="statinfo" context="{'status':'design'}"
+                                    attrs="{'invisible': [('status', '!=', 'finish'), ('status', '!=', 'design')]}"/>
+                            <button class="oe_stat_button" type="object" name="view_doc" icon="fa-file-text-o"
+                                    string="实施文档" widget="statinfo" context="{'status':'implement'}"
+                                    attrs="{'invisible': [('status', '!=', 'finish'), ('status', '!=', 'implement')]}"/>
+                            <button class="oe_stat_button" type="object" name="view_doc" icon="fa-file-text-o"
+                                    string="报告文档" widget="statinfo" context="{'status':'report'}"
+                                    attrs="{'invisible': [('status', '!=', 'finish'), ('status', '!=', 'report')]}"/>
+                        </div>
+                        <h2>项目基本信息</h2>
+                        <group>
+                            <group>
+                                <field name="property" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="area" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="name" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="assume_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="mineral" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"
+                                       widget="many2many_tags"/>
+                                <field name="approve_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="longitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="latitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="resource_amount" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="field_accept_date" attrs="{'invisible': [('status', '!=', 'finish'),
+                                       ('status', '!=', 'implement')], 'required': [('status', '=', 'implement')]}"/>
+                                <field name="review_date" attrs="{'invisible': [('status', '!=', 'finish'),
+                                       ('status', '!=', 'report')], 'required': [('status', '=', 'report')]}"/>
+                            </group>
+                            <group>
+                                <field name="code" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="address" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="prospecting_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch_category" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="stage" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="start_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="end_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <label for="prospecting_area"/>
+                                <div>
+                                    <field name="prospecting_area" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>平方公里
+                                </div>
+                                <label for="investment_amount"/>
+                                <div>
+                                    <field name="investment_amount" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>万元
+                                </div>
+                                <field name="concurrent_date" attrs="{'invisible': [('status', '!=', 'finish'),
+                                       ('status', '!=', 'report')], 'required': [('status', '=', 'report')]}"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'finish'),('status', '!=', 'report')]}">
+                            <field name="manage_survey"/>
+                            <field name="result_summary"/>
+                            <field name="expect_result"/>
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'finish'),('status', '!=', 'set')]}">
+                            <field name="survey"/>
+                            <field name="catalog"/>
+                            <field name="goal"/>
+                            <field name="design_workload"/>
+                            <field name="expect_result"/>
+                            <field name="note"/>
+                        </group>
+                        <notebook>
+                            <page string="工作量工作项目明细">
+                                <field name="workload_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="name" required="1"/>
+                                        <field name="workload" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="拐点坐标">
+                                <field name="coordinate_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="coordinate54"/>
+                                        <field name="coordinate80"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_project_form" model="ir.ui.view">
+            <field name="name">geo.project.form</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="0"/>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                        <button name="set_to_design" string="转为设计" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'set')]}"/>
+                        <button name="design_to_implement" string="转为实施" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'design')]}"/>
+                        <button name="implement_to_report" string="转为报告" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'implement')]}"/>
+                        <button name="report_to_finish" string="转为完结" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('status', '!=', 'report')]}"/>
+                        <button name="project_change" attrs="{'invisible': [('status', '=', 'finish')]}" string="项目变更" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="立项文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'set')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="设计文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'design')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="实施文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'implement')]}"/>
+                            <button class="oe_stat_button" type="object" name="upload_doc" icon="fa-file-text-o"
+                                    string="报告文档" widget="statinfo"
+                                    attrs="{'invisible': [('status', '!=', 'report')]}"/>
+                        </div>
+                        <h2>项目基本信息</h2>
+                        <group>
+                            <group>
+                                <field name="property" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="area" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="name" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="assume_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="mineral" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"
+                                       widget="many2many_tags"/>
+                                <field name="approve_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="longitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="latitude" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="resource_amount" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="field_accept_date" attrs="{'invisible': [('status', '!=', 'implement')],
+                                       'required': [('status', '=', 'implement')]}"/>
+                                <field name="review_date" attrs="{'invisible': [('status', '!=', 'report')],
+                                       'required': [('status', '=', 'report')]}"/>
+                            </group>
+                            <group>
+                                <field name="code" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="address" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="prospecting_unit" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="batch_category" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="stage" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                                       attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="start_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <field name="end_date" attrs="{'readonly': [('status', '!=', 'set')]}"/>
+                                <label for="prospecting_area"/>
+                                <div>
+                                    <field name="prospecting_area" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>平方公里
+                                </div>
+                                <label for="investment_amount"/>
+                                <div>
+                                    <field name="investment_amount" class="oe_inline"
+                                           attrs="{'readonly': [('status', '!=', 'set')]}"/>万元
+                                </div>
+                                <field name="concurrent_date" attrs="{'invisible': [('status', '!=', 'report')],
+                                       'required': [('status', '=', 'report')]}"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'report')]}">
+                            <field name="manage_survey"/>
+                            <field name="result_summary"/>
+                            <field name="expect_result"/>
+                        </group>
+                        <group attrs="{'invisible': [('status', '!=', 'set')]}">
+                            <field name="survey"/>
+                            <field name="catalog"/>
+                            <field name="goal"/>
+                            <field name="design_workload"/>
+                            <field name="expect_result"/>
+                            <field name="note"/>
+                        </group>
+                        <notebook>
+                            <page string="工作量工作项目明细">
+                                <field name="workload_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="name" required="1"/>
+                                        <field name="workload" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="拐点坐标">
+                                <field name="coordinate_ids" widget="one2many">
+                                    <tree editable="top">
+                                        <field name="coordinate54"/>
+                                        <field name="coordinate80"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_project_search" model="ir.ui.view">
+            <field name="name">geo.project.search</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+
+                    <filter name="set" string="立项阶段" domain="[('status', '=', 'set')]"/>
+                    <filter name="group_by_status" string="状态" domain="[]" context="{'group_by': 'status'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!--跳转弹窗-->
+        <record id="geo_project_design_to_implement" model="ir.ui.view">
+            <field name="name">geo.project.design.to.implement</field>
+            <field name="model">geo.project</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="code" readonly="1"/>
+                            <field name="field_accept_date" required="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="保存" class="oe_highlight" type="object" name="save"/>
+                        <button string="取消" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="geo_project_implement_to_report" model="ir.ui.view">
+            <field name="name">geo.project.implement.to.report</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="review_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="code" readonly="1"/>
+                                <field name="concurrent_date" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="manage_survey"/>
+                            <field name="result_summary"/>
+                            <field name="expect_result"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="保存" class="oe_highlight" type="object" name="save"/>
+                        <button string="取消" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_geo_project_search" model="ir.ui.view">
+            <field name="name">项目查询search</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code" string="项目编码"/>
+                    <field name="name"/>
+
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="assume_unit"/>
+                    <field name="prospecting_unit"/>
+                    <field name="investment_amount"/>
+                    <field name="address"/>
+                    <group expand="0" string="Group By">
+                        <filter name="property" domain="[]" context="{'group_by':'property'}"/>
+                        <filter name="stage" domain="[]" context="{'group_by':'stage'}"/>
+                        <filter name="area" domain="[]" context="{'group_by':'area'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--综合查询-->
+        <record id="geo_project_list_select_tree" model="ir.ui.view">
+            <field name="name">geo.project.list.select.tree</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false" import="false">
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="assume_unit"/>
+                    <field name="property"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_project_area_list_select" model="ir.ui.view">
+            <field name="name">geo.project.area.list.select</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+                    <searchpanel>
+                        <field name="area" enable_counters="1"/>
+                        <field name="property" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="geo_project_mineral_list_select" model="ir.ui.view">
+            <field name="name">geo.project.mineral.list.select</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+                    <searchpanel>
+                        <field name="mineral" enable_counters="1"/>
+                        <field name="property" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="geo_project_batch_list_select" model="ir.ui.view">
+            <field name="name">geo.project.batch.list.select</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+                    <searchpanel>
+                        <field name="batch" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="geo_project_assume_list_select" model="ir.ui.view">
+            <field name="name">geo.project.assume.list.select</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+                    <searchpanel>
+                        <field name="assume_unit" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="geo_project_prospecting_list_select" model="ir.ui.view">
+            <field name="name">geo.project.prospecting.list.select</field>
+            <field name="model">geo.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="batch"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="investment_amount"/>
+                    <field name="prospecting_unit"/>
+                    <field name="assume_unit"/>
+                    <searchpanel>
+                        <field name="prospecting_unit" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

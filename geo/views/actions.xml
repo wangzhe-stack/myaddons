@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_geo_base_unit" model="ir.actions.act_window">
+            <field name="name">地勘单位</field>
+            <field name="res_model">geo.base.unit</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_geo_base_mineral" model="ir.actions.act_window">
+            <field name="name">矿种管理</field>
+            <field name="res_model">geo.base.mineral</field>
+            <field name="view_mode">tree,search</field>
+        </record>
+
+        <record id="action_geo_base_prospecting_stage" model="ir.actions.act_window">
+            <field name="name">勘查阶段</field>
+            <field name="res_model">geo.base.prospecting.stage</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_project_property" model="ir.actions.act_window">
+            <field name="name">项目性质</field>
+            <field name="res_model">geo.base.project.property</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_area_management" model="ir.actions.act_window">
+            <field name="name">地区管理</field>
+            <field name="res_model">geo.base.area.management</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_project_change_type" model="ir.actions.act_window">
+            <field name="name">项目变更类型</field>
+            <field name="res_model">geo.base.project.change.type</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_batch_category" model="ir.actions.act_window">
+            <field name="name">批次类别维护</field>
+            <field name="res_model">geo.base.batch.category</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_workload_maintain" model="ir.actions.act_window">
+            <field name="name">工作量维护</field>
+            <field name="res_model">geo.base.workload.maintain</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_base_batch_maintain" model="ir.actions.act_window">
+            <field name="name">项目批次</field>
+            <field name="res_model">geo.base.batch.maintain</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_regulations_laws" model="ir.actions.act_window">
+            <field name="name">法律法规</field>
+            <field name="res_model">geo.regulations.laws</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_geo_regulations_informs" model="ir.actions.act_window">
+            <field name="name">通知公告</field>
+            <field name="res_model">geo.regulations.informs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_geo_system_dept" model="ir.actions.act_window">
+            <field name="name">部门管理</field>
+            <field name="res_model">geo.system.dept</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_system_user" model="ir.actions.act_window">
+            <field name="name">用户管理</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_system_user_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_system_user_form')})]"/>
+        </record>
+
+        <record id="action_geo_system_groups" model="ir.actions.act_window">
+            <field name="name">角色管理</field>
+            <field name="res_model">res.groups</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('category_id.name', '=', 'GEO')]</field>
+        </record>
+
+        <record id="action_geo_project_set" model="ir.actions.act_window">
+            <field name="name">立项阶段</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("status", "=", "set")]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_form')}),
+            ]"/>
+        </record>
+        <record id="action_geo_project_design" model="ir.actions.act_window">
+            <field name="name">设计阶段</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("status", "=", "design")]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_other_stage_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_other_stage_form')}),
+            ]"/>
+        </record>
+        <record id="action_geo_project_implement" model="ir.actions.act_window">
+            <field name="name">实施阶段</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("status", "=", "implement")]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_other_stage_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_other_stage_form')}),
+            ]"/>
+        </record>
+        <record id="action_geo_project_report" model="ir.actions.act_window">
+            <field name="name">报告阶段</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[("status", "=", "report")]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_other_stage_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_other_stage_form')}),
+            ]"/>
+        </record>
+        <record id="action_geo_project_search" model="ir.actions.act_window">
+            <field name="name">项目查询</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="view_geo_project_search"/>
+            <field name="domain">[]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_other_stage_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_search_form')}),
+            ]"/>
+        </record>
+        <record id="action_geo_project_manage" model="ir.actions.act_window">
+            <field name="name">项目管理</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <record id="action_geo_project_manage_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_geo_project_manage_tree"/>
+            <field name="act_window_id" ref="action_geo_project_manage"/>
+        </record>
+        <record id="action_geo_project_manage_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_geo_project_manage_form"/>
+            <field name="act_window_id" ref="action_geo_project_manage"/>
+        </record>
+
+        <!--综合查询-->
+        <record id="action_project_area_search" model="ir.actions.act_window">
+            <field name="name">地区查询</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="geo_project_area_list_select"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_list_select_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_search_form')}),
+            ]"/>
+        </record>
+
+<!--        <record id="action_project_mineral_search" model="ir.actions.act_window">-->
+<!--            <field name="name">矿种查询</field>-->
+<!--            <field name="res_model">geo.project</field>-->
+<!--            <field name="view_mode">tree,form,search</field>-->
+<!--            <field name="search_view_id" ref="geo_project_mineral_list_select"/>-->
+<!--            <field name="view_ids" eval="[(5, 0, 0),-->
+<!--                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_list_select_tree')}),-->
+<!--                (0, 0, {'view_mode': 'form'}),-->
+<!--            ]"/>-->
+<!--        </record>-->
+
+        <record id="action_project_attachment_search" model="ir.actions.act_window">
+            <field name="name">附件查询</field>
+            <field name="res_model">geo.attachment.manage</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="geo_attachment_manage_search"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_attachment_manage_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_attachment_manage_search_form')}),
+            ]"/>
+        </record>
+
+        <record id="action_project_batch_search" model="ir.actions.act_window">
+            <field name="name">批次查询</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="geo_project_batch_list_select"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_list_select_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_search_form')}),
+            ]"/>
+        </record>
+
+        <record id="action_project_assume_search" model="ir.actions.act_window">
+            <field name="name">承担单位查询</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="geo_project_assume_list_select"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_list_select_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_search_form')}),
+            ]"/>
+        </record>
+
+        <record id="action_project_prospecting_search" model="ir.actions.act_window">
+            <field name="name">勘查单位查询</field>
+            <field name="res_model">geo.project</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="search_view_id" ref="geo_project_prospecting_list_select"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('geo_project_list_select_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('geo_project_search_form')}),
+            ]"/>
+        </record>
+
+        <record id="action_geo_param_setting" model="ir.actions.act_window">
+            <field name="name">参数设置</field>
+            <field name="res_model">geo.param.setting</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_doc_catalog" model="ir.actions.act_window">
+            <field name="name">文档目录</field>
+            <field name="res_model">geo.doc.catalog</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_catalog_manage" model="ir.actions.act_window">
+            <field name="name">目录管理</field>
+            <field name="res_model">geo.catalog.manage</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_geo_project_change" model="ir.actions.act_window">
+            <field name="name">项目变更</field>
+            <field name="res_model">geo.project.change</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="domain">[]</field>
+        </record>
+        <record id="action_geo_project_change_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_geo_project_change_tree"/>
+            <field name="act_window_id" ref="action_geo_project_change"/>
+        </record>
+        <record id="action_geo_project_change_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_geo_project_change_form"/>
+            <field name="act_window_id" ref="action_geo_project_change"/>
+        </record>
+
+        <record id="client_gis_search" model="ir.actions.client">
+            <field name="name">GIS</field>
+            <field name="tag">action_gis_search</field>
+        </record>
+
+        <record id="action_geo_monthly_prospect_report" model="ir.actions.act_window">
+            <field name="name">整装勘察月报填报</field>
+            <field name="res_model">geo.monthly.prospect.report</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_geo_monthly_synthesize_fill" model="ir.actions.act_window">
+            <field name="name">综合月报填报</field>
+            <field name="res_model">geo.monthly.synthesize.fill</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_geo_monthly_prospecting_fill" model="ir.actions.act_window">
+            <field name="name">勘查月报填报</field>
+            <field name="res_model">geo.monthly.prospecting.fill</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

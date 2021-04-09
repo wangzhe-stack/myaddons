@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id="cron_updateDepartMent" model="ir.cron">
+            <field name="name">更新部门数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateDepartMent()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">10</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updatePerson" model="ir.cron">
+            <field name="name">更新业务员数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updatePerson()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">10</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updateInventory" model="ir.cron">
+            <field name="name">更新物资数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateInventory()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">5</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updateComputationUnit" model="ir.cron">
+            <field name="name">更新计量单位数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateComputationUnit()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">10</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updateRdStyle" model="ir.cron">
+            <field name="name">更新出库类型数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateRdStyle()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">30</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updateWarehouse" model="ir.cron">
+            <field name="name">更新仓库数据</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateWarehouse()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">27</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+
+        <record id="cron_updateStockNumber" model="ir.cron">
+            <field name="name">更新库存数量</field>
+            <field name="model_id" ref="model_update_data_timing"/>   <!--任务方法所在模块 model+模块名-->
+            <field name="state">code</field>
+            <field name="code">model.updateStockNumber()</field>     <!--调用的方法 model+方法()-->
+            <field name="user_id" ref="base.user_root"/>        <!--执行定时任务的用户 一般是所有用户-->
+            <field name="interval_number">2</field>               <!--任务执行的频次-->
+            <field name="interval_type">minutes</field>          <!--任务执行的频次的单位 minutes,hours,days,work_days,weeks,months-->
+            <field name="numbercall">-1</field>                   <!--循环运行的次数  -1代表无限循环-->
+            <field eval="False" name="doall"/>                     <!--如果在服务器重启期间错过了执行时机  是否再次补充执行-->
+        </record>
+    </data>
+</odoo>

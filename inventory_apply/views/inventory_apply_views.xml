@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="inventory_apply_tree" model="ir.ui.view">
+            <field name="name">inventory.apply.tree</field>
+            <field name="model">inventory.apply</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="apply_no"/>
+                    <field name="department_id"/>
+                    <field name="person_id"/>
+                    <field name="apply_date"/>
+                    <field name="approval_date"/>
+                    <field name="rd_style"/>
+                    <field name="memo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="inventory_apply_form" model="ir.ui.view">
+            <field name="name">inventory.apply.form</field>
+            <field name="model">inventory.apply</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                         <field name="state" widget="statusbar"/>
+                         <button name="button_to_commit" string="提交审批" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="button_to_approved" string="审批" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('state', '!=', 'commit')]}"/>
+                             <button name="button_to_draft" string="转为草稿" type="object"
+                                attrs="{'invisible': [('state', '!=', 'commit')]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="apply_no" readonly="1"/>
+                                <field name="person_id" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                <field name="approval_date" readonly="1"/>
+                                <field name="approval_user" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="apply_date" required="1"/>
+                                <field name="rd_style" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                <field name="department_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="memo"/>
+                            <field name="approval_memo" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="物资申领明细">
+                                <field name="apply_lines_ids" widget="one2many" mode="tree">
+                                    <tree editable="top">
+                                        <field name="inventory_id" string="物资编码" required="1"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                        <field name="inventory_name"/>
+                                        <field name="inventory_std"/>
+                                        <field name="c_com_unit_code" required="1"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                        <field name="price" required="1"/>
+                                        <field name="sum"/>
+                                        <field name="number" required="1"/>
+                                        <field name="i_quantity" readonly="1" force_save="1"/>
+                                        <field name="demand_date" required="1"/>
+                                        <field name="warehouse_id" string="仓库" required="1"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="inventory_apply_search" model="ir.ui.view">
+            <field name="name">inventory.apply.search</field>
+            <field name="model">inventory.apply</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="apply_no"/>
+                    <field name="department_id"/>
+                    <field name="person_id"/>
+                    <field name="rd_style"/>
+                    <field name="state" invisible="1"/>
+
+                    <filter name="draft" domain="[('state', '=', 'draft')]" string="草稿"/>
+                    <filter name="commit" domain="[('state', '=', 'commit')]" string="提交"/>
+                    <filter name="approved" domain="[('state', '=', 'approved')]" string="已审核"/>
+
+                    <filter name="group_by_department" domain="[]" context="{'group_by': 'department_id'}"/>
+                    <filter name="group_by_person" domain="[]" context="{'group_by': 'person_id'}"/>
+                    <filter name="group_by_rd_style" domain="[]" context="{'group_by': 'rd_style'}"/>
+                </search>
+            </field>
+        </record>
+
+         <!--跳转弹窗-->
+        <record id="view_inventory_approve" model="ir.ui.view">
+            <field name="name">inventory_approve</field>
+            <field name="model">inventory.apply</field>
+            <field name="priority" eval="4"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="approval_date" required="1"/>
+                            <field name="approval_memo" required="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="通过" class="oe_highlight" type="object" name="oe_save"/>
+                        <button string="不通过" class="oe_highlight" type="object" name="oe_cancel"/>
+                        <button string="取消" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

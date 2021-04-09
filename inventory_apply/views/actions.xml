@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_inventory_apply" model="ir.actions.act_window">
+            <field name="name">物品申领</field>
+            <field name="res_model">inventory.apply</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <record id="action_inventory" model="ir.actions.act_window">
+            <field name="name">物资档案</field>
+            <field name="res_model">inventory</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <record id="action_person" model="ir.actions.act_window">
+            <field name="name">业务员档案</field>
+            <field name="res_model">person</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

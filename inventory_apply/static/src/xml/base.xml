@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates>
+    <t t-name="Inventory.selection">
+        <div class="o_list_selection_box" id="selection_cart">
+            <i class="fa fa-shopping-cart"/>
+            <t t-esc="nbSelected"/> selected
+        </div>
+    </t>
+
+    <t t-name="selectDataPreView">
+        <div class="modal o_modal_inventory" tabindex="-1" data-keyboard="false" role="dialog" data-backdrop="false">
+            <t class="o_document_viewer_content_call" t-call="selectDataPreView.Content"/>
+        </div>
+    </t>
+
+     <t t-name="selectDataPreView.Content">
+        <div class="o_viewer_content">
+<!--            <t t-debug=""/>-->
+            <t t-set="data" t-value="widget.retData"/>
+            <div class="o_viewer_header">
+                 <span class="o_image_caption">
+                </span>
+                <a role="button" class="o_close_btn float-right" href="#" aria-label="Close" title="Close">×</a>
+            </div>
+            <div class="o_viewer_img_wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="o_viewer_zoomer">
+                             <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="pro-code">序号</th>
+                                        <th class="pro-code">物资编码</th>
+                                        <th class="pro-name">物资名称</th>
+                                        <th class="pro-std">规格</th>
+                                        <th class="pro-unit">主计量单位</th>
+                                        <th class="pro-price">单价</th>
+                                        <th class="pro-quantity">数量</th>
+                                        <th class="pro-num">库存数量</th>
+                                        <th class="pro-remove">删除</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="data" t-as="aml">
+                                        <tr t-attr-data-id="{{aml['id']}}">
+                                            <td class="pro-index"><t t-esc="aml_index + 1"/></td>
+                                            <td class="pro-code"><span t-esc="aml['code']"/></td>
+                                            <td class="pro-name"><span t-esc="aml['name']"/></td>
+                                            <td class="pro-std"><span t-esc="aml['c_inv_std']"/></td>
+                                            <td class="pro-unit"><span t-esc="aml['computation_unit_name']"/></td>
+                                            <td class="pro-price"><span> 0.00</span></td>
+                                            <td class="pro-quantity">
+                                                <div class="quantity">
+                                                    <div class="cart-plus-minus">
+                                                        <input class="cart-plus-minus-box" value="1" type="number" min="1"/>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="pro-num"><span t-esc="aml['i_quantity']"/></td>
+                                            <td class="pro-remove"><i class="fa fa-trash-o"></i></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_viewer_footer">
+                    <button type="button" id="cart_confirmed" class="btn btn-primary btn-lg">生成申领单</button>
+                    <button type="button" id="cart_empty" class="btn btn-secondary btn-lg">清空</button>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

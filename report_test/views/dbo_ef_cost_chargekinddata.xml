@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ef_cost_chargekinddata_tree" model="ir.ui.view">
+            <field name="name">ef.cost.chargekinddata.tree</field>
+            <field name="model">ef.cost.chargekinddata</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="c_charge_kind_code"/>
+                    <field name="c_order_dept_code"/>
+                    <field name="c_exec_dept_code"/>
+                    <field name="i_money"/>
+                    <field name="c_army"/>
+                    <field name="c_insure"/>
+                    <field name="cdefine22"/>
+                    <field name="cdefine23"/>
+                    <field name="cdefine24"/>
+                    <field name="cdefine25"/>
+                    <field name="cdefine26"/>
+                    <field name="cdefine27"/>
+                    <field name="cdefine28"/>
+                    <field name="cdefine29"/>
+                    <field name="cdefine30"/>
+                    <field name="cdefine31"/>
+                    <field name="cdefine32"/>
+                    <field name="cdefine33"/>
+                    <field name="cdefine34"/>
+                    <field name="cdefine35"/>
+                    <field name="cdefine36"/>
+                    <field name="cdefine37"/>
+                    <field name="dnmodifytime"/>
+                    <field name="cmodifier"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

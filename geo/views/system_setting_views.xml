@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="geo_param_setting_tree" model="ir.ui.view">
+            <field name="name">geo.param.setting.tree</field>
+            <field name="model">geo.param.setting</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_doc_catalog_tree" model="ir.ui.view">
+            <field name="name">geo.doc.catalog.tree</field>
+            <field name="model">geo.doc.catalog</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="parent_id"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="geo_catalog_manage_tree" model="ir.ui.view">
+            <field name="name">geo.catalog.manage.tree</field>
+            <field name="model">geo.catalog.manage</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" required="1"/>
+                    <field name="parent_id"/>
+                    <field name="full_name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

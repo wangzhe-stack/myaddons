@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="module_geo_category" model="ir.module.category">
+            <field name="name">GEO</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="geo_project_user" model="res.groups">
+            <field name="name">普通用户</field>
+            <field name="category_id" ref="geo.module_geo_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="geo_project_manager" model="res.groups">
+            <field name="name">项目管理员</field>
+            <field name="category_id" ref="geo.module_geo_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="geo_system_manager" model="res.groups">
+            <field name="name">系统管理员</field>
+            <field name="category_id" ref="geo.module_geo_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_system')), (4, ref('base.group_user')),
+                   (4, ref('base.group_partner_manager'))]"/>
+        </record>
+
+        <record id="project_manager_1" model="ir.rule">
+            <field name="name">项目管理员仅能看见自己创建的项目</field>
+            <field name="model_id" ref="geo.model_geo_project"/>
+            <field name="domain_force">[('create_uid','=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('geo_project_manager'))]"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+          <record id="project_manager_change_record_1" model="ir.rule">
+            <field name="name">项目管理员仅能看见自己项目的变更记录</field>
+            <field name="model_id" ref="geo.model_geo_project_change"/>
+            <field name="domain_force">[('create_uid','=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('geo_project_manager'))]"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

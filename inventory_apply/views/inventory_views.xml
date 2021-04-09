@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="inventory_tree" model="ir.ui.view">
+            <field name="name">inventory.tree</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="c_inv_std"/>
+                    <field name="computation_unit_id"/>
+                    <field name="stock_number"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="inventory_form" model="ir.ui.view">
+            <field name="name">inventory.form</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" readonly="1"/>
+                                <field name="c_inv_add_code" readonly="1"/>
+                                <field name="c_dep_warehouse" readonly="1"/>
+                                <field name="computation_unit_id" readonly="1"/>
+                                <field name="image_128" filename="image_name"/>
+                            </group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="c_inv_std" readonly="1"/>
+                                <field name="c_position" readonly="1"/>
+                                <field name="stock_number" readonly="1"/>
+                                <field name="image_name" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="inventory_search" model="ir.ui.view">
+            <field name="name">inventory.search</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="warehouse"/>
+                    <filter string="库存大于0" name="filter_stock_gt_0" domain="[('stock_number', '>', 0)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="inventory_kanban" model="ir.ui.view">
+            <field name="name">inventory.kanban</field>
+            <field name="model">inventory</field>
+            <field name="arch" type="xml">
+                <kanban js_class="inventory_kanban_view">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="id"/>
+                    <field name="c_inv_std"/>
+                    <field name="computation_unit_id"/>
+                    <field name="stock_number"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image" style="width:128px;">
+                                    <img t-att-src="kanban_image('inventory', 'image_128', record.id.raw_value)" alt="Inventory" class="o_image_128_contain"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title" style="font-weight:700;line-height:32px;">
+                                        <field name="name"/>
+                                    </strong>
+                                    <t t-if="record.code.value">[<field name="code"/>]</t>
+                                    <div name="product_lst_price" class="mt-1" style="line-height:32px;">
+<!--                                        Price: <field name="lst_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"></field>-->
+                                            价格: ￥0.00
+                                    </div>
+                                    <div style="line-height:32px">
+                                        规格: <field name="c_inv_std"/>
+                                    </div>
+                                    <div style="line-height:32px;display:inline-block">
+                                        库存: <field name="stock_number"/>(<field name="computation_unit_id"/>)
+                                    </div>
+                                    <div class="add_to_btn" style="display:inline-block;float:right;line-height:32px;">
+                                        <button id="add_cart" class="btn btn-primary" t-att-data-id="record.id.value">加入购物车</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

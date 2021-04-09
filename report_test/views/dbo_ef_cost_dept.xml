@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ef_cost_dept_tree" model="ir.ui.view">
+            <field name="name">ef.cost.dept.tree</field>
+            <field name="model">ef.cost.dept</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="i_id"/>
+                    <field name="c_dept_code"/>
+                    <field name="c_dept_name"/>
+                    <field name="c_parent_code"/>
+                    <field name="c_end"/>
+                    <field name="c_share_kind_code"/>
+                    <field name="c_dept_kind_code"/>
+                    <field name="c_share_param_code"/>
+                    <field name="c_virtual"/>
+                    <field name="cmodifier"/>
+                    <field name="dnmodifytime"/>
+                    <field name="u_fts"/>
+                    <field name="c_level"/>
+                    <field name="toc_dept_code"/>
+                    <field name="toc_parent_code"/>
+                    <field name="i_grade"/>
+                    <field name="cks_stop"/>
+                    <field name="c_join_desease"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

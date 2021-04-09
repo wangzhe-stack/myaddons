@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.android.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.arctic.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.base.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.black.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.blackberry.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.bootstrap.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.classic.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.dark.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.darkblue.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.energyblue.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.flat.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.fresh.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.glacier.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.highcontrast.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.light.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.material.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.material-green.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.material-purple.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.metro.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.metrodark.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.mobile.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.office.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.orange.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.shinyblack.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.summer.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-darkness.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-le-frog.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-lightness.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-overcast.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-redmond.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-smoothness.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-start.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.ui-sunny.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.web.css"/>
+                <link rel="stylesheet" href="/jqwidget/static/jqwidgets/styles/jqx.windowsphone.css"/>
+                <script src="/jqwidget/static/jqwidgets/jqx-all.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/report_test/static/css/base.css"/>
+                <script type="text/javascript" src="/report_test/static/js/jqx_income_report.js"/>
+                <script type="text/javascript" src="/report_test/static/js/jqx_dept_report.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
